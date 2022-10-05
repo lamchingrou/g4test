@@ -1,7 +1,11 @@
+import LoginForm from "../components/LoginForm"
+import LoginNavbar from "../components/LoginNavbar"
+
 const Login = () => {
     return (
         <div>
-            hi
+            <LoginNavbar></LoginNavbar>
+            <LoginForm></LoginForm>
         </div>
     )
 }

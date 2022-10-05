@@ -1,24 +1,37 @@
 import StaffSideBar from "../components/StaffSideBar"
 import SearchInput from "../components/SearchInput"
-
+import StaffRoleRows from "../components/StaffRoleRows"
 const StaffRolePage = () => {
     return (
-        <div className="container grid grid-cols-4 mx-auto">
+        <div className="container-full grid grid-cols-4 grid-rows-6 max-h-screen">
             <div className="col-span-1">
                 <StaffSideBar select='Job Roles' />
             </div>
-            <div className="col-span-3 grid grid-cols-6 pt-6">
-                <div className='col-start-1 col-end-3'>
-                    <h1 className="text-3xl font-bold text-center">
-                        Job Roles
-                    </h1>
+            
+            <div className='col-start-2 col-end-3 my-auto'>
+                <h1 className="text-3xl font-bold text-start ml-12">
+                    Job Roles
+                </h1>
+            </div>
+
+                <div className='col-end-5 col-span-1 my-auto mx-12'>
+                    <SearchInput />
                 </div>
-                <div className='col-end-7 col-span-2'>
-                    <SearchInput/>
+                <div className='col-start-2 col-end-5 row-start-2 row-end-6 border border-3 rounded-lg overflow-y-scroll max-h-screen mx-12'>
+                        <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
+                            <thead>
+                                <tr className='h-16 bg-gray-100 sticky top-0'>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Role Details</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Skills</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Courses</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Add to Learning Journey</th>
+                                </tr>
+                            </thead>
+                               <StaffRoleRows/>
+                        </table>
                 </div>
             </div>
 
-        </div>
     )
 }
 

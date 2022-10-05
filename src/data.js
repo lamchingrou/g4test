@@ -2,7 +2,7 @@
 //URL = "http://hostname:port/staff/*staffID*"
 //e.g. http://hostname:port/staff/130001
 //e.g. output = 
-staffData = {
+var staffData = {
     "data": {
         "Dept": "Chariman",
         "Email": "jack.sim@allinone.com.sg",
@@ -19,7 +19,7 @@ staffData = {
 //URL = http://hostname:port/course/*course_id*
 //e.g. http://hostname:port/course/COR001
 //e.g. output = 
-courseData = {
+var courseData = {
     "data": {
         "Course_Category": "Core",
         "Course_Desc": "This foundation module aims to introduce students to the fundamental concepts and underlying principles of systems thinking,",
@@ -36,11 +36,39 @@ courseData = {
 //URL = http://hostname:port/role/*role_id*
 //e.g. http://hostname:port/role/1
 //e.g. output = 
-roleData = {
-    "data": {
+var response = {
+    "data": [
+        {
         "Role_ID": 1,
-        "Role_name": "Admin"
+        "Role_name": "Web Developer",
+        "Role_skills": [],
+        "Role_courses": []
+    },
+    {
+        "Role_ID": 2,
+        "Role_name": "Backend Engineer",
+        "Role_skills": [],
+        "Role_courses": []
+    },
+    {
+        "Role_ID": 3,
+        "Role_name": "Admin",
+        "Role_skills": [],
+        "Role_courses": []
+    },
+    {
+        "Role_ID": 4,
+        "Role_name": "Marketing",
+        "Role_skills": [],
+        "Role_courses": []
+    },
+    {
+        "Role_ID": 5,
+        "Role_name": "Data Analyst",
+        "Role_skills": [],
+        "Role_courses": []
     }
+]
 }
 
 //#Get all Role *TBC*
@@ -49,7 +77,7 @@ roleData = {
 //URL = http://hostname:port/registration/*reg_id*
 //e.g. http://hostname:port/registration/1
 //e.g. output = 
-getRegistrationData = {
+var getRegistrationData = {
     "data": {
         "Completion_Status": "Completed",
         "Course_ID": "COR001",

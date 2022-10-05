@@ -148,8 +148,8 @@ export default function StaffRoleRows() {
             <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['Role_courses'].length}</td>
             <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
                 <a className="inline-flex items-center rounded-2xl border border-indigo-600 bg-indigo-600 px-2 py-1 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                    href="/download">
-                    <span className="text-sm font-medium"> Plan For Role </span>
+                    href="/roleplanner">
+                    <span className="text-xs font-medium"> Plan For Role </span>
                     <svg
                         className="ml-1 h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"

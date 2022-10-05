@@ -17,7 +17,7 @@ const StaffRolePage = () => {
                 <div className='col-end-5 col-span-1 my-auto mx-12'>
                     <SearchInput />
                 </div>
-                <div className='col-start-2 col-end-5 row-start-2 row-end-6 border border-3 rounded-lg overflow-y-scroll max-h-screen mx-12'>
+                <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
                         <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
                             <thead>
                                 <tr className='h-16 bg-gray-100 sticky top-0'>

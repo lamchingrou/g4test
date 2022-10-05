@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Feed from "./feed"
 import '../index.css'
 
-function Navbar() {
+export default function Navbar() {
     return (
         <div class="flow-root">
             <nav class="flex flex-col space-y-2">
@@ -120,7 +119,7 @@ function Navbar() {
                         </li>
 
                         <li>
-                            <form action="/logout">
+                            <form action="">
                                 <button
                                     type="submit"
                                     class="block w-full rounded-lg px-4 py-2 text-left text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"

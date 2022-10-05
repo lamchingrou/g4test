@@ -2,22 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
 import Navbar from "./components/navbar"
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+  } from "react-router-dom";
+import Login from './pages/Login.jsx'
 
-function Page() {
-    return (
-        <>
-        <div className='container p-5'>
-            <div className='container columns-1'>
-                <Navbar />
-            </div>
-            <div className='container columns-4'>
-                <Navbar />
-            </div>
-        </div>
-            
-        </>
-    )
+ReactDOM.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
 
-}
+                <Route
+                    path="/"
+                >
+                </Route>
 
-ReactDOM.render(<Page />, document.getElementById('root'));
+                <Route
+                    path="/login"
+                    element={<Login/>}
+                >
+                </Route>
+
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>
+,document.getElementById('root'));

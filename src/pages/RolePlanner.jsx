@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useState,useCallback } from "react";
 import StaffSideBar from "../components/StaffSideBar"
-import CheckBox from "../components/Checkbox";
+import CheckBoxGroup from "../components/CheckboxGroup";
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,6 +8,8 @@ import {
     Link,
     useParams
 } from "react-router-dom";
+import { SelectedContext } from "../components/RolePlannerContext";
+import { render } from "@testing-library/react";
 const RolePlanner = () => {
     //Get params
     let { staffid, roleid } = useParams()
@@ -112,20 +114,20 @@ const RolePlanner = () => {
     function createJourney() {
 
     }
-    const [isChecked, setIsChecked] = useState(false);
+    const [, updateState] = useState();
+    const forceUpdate = useCallback(() => updateState({}), []);
+    function handleOnchange(e){
+        forceUpdate()
+    }
+    const [selected, setSelected] = useState([]);
 
-  const handleOnChange = () => {
-    setIsChecked(!isChecked);
-  };
     //map course id and course names to checkbox group
     const dropdowns = roleData.data.Role_skills.map(function (skillid) {
 
         if (skillData.data[skillid]) {
             const courseArray = skillData.data[skillid]['Skill_courses'].map(function (courseid) {
                 if (courseData.data[courseid]) {
-                    console.log(courseData.data[courseid]['Course_name'])
-                    return <CheckBox value={courseid} labelText={courseData.data[courseid]['Course_name']}  id={courseData.data[courseid]['Course_name']}
-                    name={courseData.data[courseid]['Course_name']} checked={isChecked} onChange={handleOnChange}/>
+                    return {value: courseid, label: courseData.data[courseid]['Course_name']}
                 }
                 else {
                     return
@@ -135,7 +137,9 @@ const RolePlanner = () => {
                 <h1 className='text-lg font-bold'>
                     {skillData.data[skillid]['Skill_name']}
                 </h1>
-                {courseArray}
+                <SelectedContext.Provider value={{selected, setSelected}}>
+                    <CheckBoxGroup options= {courseArray} selected={selected}/>
+                </SelectedContext.Provider>
             </div>
         }
         else {
@@ -158,7 +162,7 @@ const RolePlanner = () => {
                 </h1>
             </div>
             <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg  max-h-screen mx-12 overflow-y-auto'>
-                <div className='grid grid-cols-4 gap-6 m-6'>
+                <div className='grid grid-cols-4 gap-6 m-6' onChange={handleOnchange}>
                     {dropdowns}
                 </div>
             </div>

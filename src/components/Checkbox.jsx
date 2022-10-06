@@ -1,5 +1,5 @@
-import React, {useRef} from "react";
-
+import React, { useContext } from "react";
+import {SelectedContext} from "../components/RolePlannerContext"
 const CheckBox = React.forwardRef(
   (
     {
@@ -20,12 +20,14 @@ const CheckBox = React.forwardRef(
     },
     ref
   ) => {
+    const {selected, setSelected} = useContext(SelectedContext)
     const labelClasses = [
-      "ml-3",
       "text-base",
       "text-black-7",
       "leading-6",
-      "cursor-pointer"
+      "cursor-pointer",
+      "w-full",
+      "text-start",
     ];
     if (hideLabel) {
       labelClasses.push("hidden");
@@ -45,8 +47,10 @@ const CheckBox = React.forwardRef(
       "form-checkbox",
       "h-4",
       "w-4",
-      "text-blue-5",
-      "cursor-pointer"
+      "bg-green-100",
+      "cursor-pointer",
+      "border-0",
+      "mr-3"
     ];
 
     if (error) {
@@ -67,28 +71,28 @@ const CheckBox = React.forwardRef(
     };
 
     return (
-      <div className="flex">
-        <div className="flex items-center mt-2 ">
-          <input 
+      <div className="flex hover:bg-gray-200 rounded-md w-full">
+        <div className="flex items-center m-2 w-full">
+          <input
             type="checkbox"
             className={inputClasses.join(" ")}
             onChange={handleOnchange}
             value={value}
-            checked={checked}
+            checked={true ? selected.includes(value) : false}
             id={id}
           />
 
           {label}
         </div>
       </div>
-      
+
     );
   }
 );
 
 CheckBox.defaultProps = {
-  onChange: () => {},
-  onClick: () => {},
+  onChange: () => { },
+  onClick: () => { },
   invalid: false,
   value: "",
   checked: false

@@ -1,12 +1,12 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import CheckBox from "./Checkbox";
+import { SelectedContext } from "./RolePlannerContext";
 
 const CheckBoxGroup = React.forwardRef(
   (
     {
       options,
       id,
-      selectedValues,
       name,
       onChange,
       onClick,
@@ -23,22 +23,25 @@ const CheckBoxGroup = React.forwardRef(
     //Mimicing the force update in the fucntional component
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);
-    
+    const {selected, setSelected} = useContext(SelectedContext)
     const handleOnchange = (val, checked) => {
       if (onChange) {
         if (checked) {
-          let index = selectedValues.indexOf(val);
+          let index = selected.indexOf(val);
           if (index === -1) {
-            selectedValues.push(val);
+            selected.push(val);
           }
         } else {
-          let index = selectedValues.indexOf(val);
+          let index = selected.indexOf(val);
           if (index !== -1) {
-            selectedValues.splice(index, 1);
+            selected.splice(index, 1);
           }
         }
-        onChange([...selectedValues]);
+        onChange([...selected]);
+        
       }
+      console.log(selected)
+
       // force update in functional component
       forceUpdate();
     };
@@ -57,7 +60,7 @@ const CheckBoxGroup = React.forwardRef(
                     handleOnchange(option.value, e.target.checked);
                   }}
                   checked={
-                    checked ? checked : selectedValues.includes(option.value)
+                    checked ? checked : selected.includes(option.value)
                   }
                   {...option}
                 />

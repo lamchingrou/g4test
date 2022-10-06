@@ -61,7 +61,7 @@ const StaffHomePage = () => {
                     </a>
                 </div>
             </div>
-            <div className="col-start-4 row-start-6 mr-12">
+            <div className="col-start-4 row-start-6 mr-12 my-auto">
                 <a class="group flex items-center justify-between rounded-lg border border-gray-600 bg-gray-600 px-5 py-3 transition-colors hover:bg-transparent focus:outline-none focus:ring" href="/staffrolepage">
                     <span class="font-medium text-white transition-colors group-hover:text-gray-600 group-active:text-gray-500">
                         Create Learning Journey

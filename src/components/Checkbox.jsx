@@ -16,6 +16,8 @@ const CheckBox = React.forwardRef(
       checked,
       option,
       title = "",
+      disabled,
+      hidden,
       ...other
     },
     ref
@@ -29,6 +31,7 @@ const CheckBox = React.forwardRef(
       "w-full",
       "text-start",
     ];
+    
     if (hideLabel) {
       labelClasses.push("hidden");
     }
@@ -53,6 +56,7 @@ const CheckBox = React.forwardRef(
       "mr-3"
     ];
 
+
     if (error) {
       inputClasses.push("bg-error-light", "border-1", "border-error");
     } else {
@@ -71,7 +75,7 @@ const CheckBox = React.forwardRef(
     };
 
     return (
-      <div className="flex hover:bg-gray-200 rounded-md w-full">
+      <div className={hidden==true?"hidden":"flex hover:bg-gray-200 rounded-md w-full"}>
         <div className="flex items-center m-2 w-full">
           <input
             type="checkbox"
@@ -80,6 +84,7 @@ const CheckBox = React.forwardRef(
             value={value}
             checked={true ? selected.includes(value) : false}
             id={id}
+            disabled={disabled}
           />
 
           {label}

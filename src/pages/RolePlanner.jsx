@@ -126,11 +126,11 @@ const RolePlanner = () => {
 
         if (skillData.data[skillid]) {
             const courseArray = skillData.data[skillid]['Skill_courses'].map(function (courseid) {
-                if (courseData.data[courseid]) {
-                    return {value: courseid, label: courseData.data[courseid]['Course_name']}
+                if (courseData.data[courseid] && courseData.data[courseid]['Course_status'] == "Unattempted") {
+                    return {value: courseid, label: courseData.data[courseid]['Course_name'], hidden:false}
                 }
                 else {
-                    return
+                    return {value: courseid, label: courseData.data[courseid]['Course_name'], hidden:true}
                 }
             })
             return <div>
@@ -138,7 +138,7 @@ const RolePlanner = () => {
                     {skillData.data[skillid]['Skill_name']}
                 </h1>
                 <SelectedContext.Provider value={{selected, setSelected}}>
-                    <CheckBoxGroup options= {courseArray} selected={selected}/>
+                    <CheckBoxGroup options= {courseArray} selected={selected} disabled = {false}/>
                 </SelectedContext.Provider>
             </div>
         }

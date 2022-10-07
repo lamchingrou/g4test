@@ -14,6 +14,7 @@ const CheckBoxGroup = React.forwardRef(
       checked,
       // remove,
       handleRemove,
+      disabled
     },
     ref
   ) => {
@@ -52,6 +53,8 @@ const CheckBoxGroup = React.forwardRef(
             return (
               <div className="flex items-center justify-between" key={index}>
                 <CheckBox
+                  hidden = {options.hidden}
+                  disabled = {disabled}
                   id={option.label}
                   labelText={option.label}
                   value={option.value}

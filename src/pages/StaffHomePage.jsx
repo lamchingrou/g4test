@@ -1,8 +1,56 @@
 import StaffSideBar from "../components/StaffSideBar"
 import SearchInput from "../components/SearchInput"
 import LearningJourneyCards from "../components/LearningJourneyCards"
-
+import React, { createContext, useContext } from "react";
+import EmptySlate from "../components/EmptySlate";
 const StaffHomePage = () => {
+
+    //Fetch user's learning journeys
+    var userLearningJourneys = {
+        
+        'data': [
+                    {
+                        "Journey_ID": '1',
+                        "Role_ID": '1',
+                        "Role_name": "Web Developer",
+                        "Skills": ['1', '2', '3', '4'],
+                        "Courses":['1','6','7'],
+                        "Progress":'Completed'
+                    },
+                    {
+                        "Journey_ID": '2',
+                        "Role_ID": '1',
+                        "Role_name": "Frontend Engineer",
+                        "Skills": ['1', '2', '3', '4'],
+                        "Courses":['1','6','7'],
+                        "Progress":'Completed'
+                    },
+                    {
+                        "Journey_ID": '3',
+                        "Role_ID": '1',
+                        "Role_name": "Backend Engineer",
+                        "Skills": ['1', '2', '3', '4'],
+                        "Courses":['1','6','7'],
+                        "Progress":'Completed'
+                    },
+                    {
+                        "Journey_ID": '4',
+                        "Role_ID": '1',
+                        "Role_name": "Caleb Insulter",
+                        "Skills": ['1', '2', '3', '4'],
+                        "Courses":['1','6','7'],
+                        "Progress":'Ongoing'
+                    },
+                ]
+            }
+
+            const learningJourneyCards = userLearningJourneys.data.map(function(journey){
+            const roleName = journey['Role_name']
+            const progress = journey['Progress']
+            const skills = journey['Skills']
+            const courses = journey['Courses']
+            return <LearningJourneyCards title={roleName} subtitle={progress} skills = {skills} courses={courses} journey={journey} progress={progress}/>
+            })
     return (
         <div className="container-full grid grid-cols-4 grid-rows-6 max-h-screen">
             <div className="col-span-1">
@@ -18,17 +66,12 @@ const StaffHomePage = () => {
             <div className='col-end-5 col-span-1 my-auto mx-12'>
                 <SearchInput />
             </div>
-            <div className='col-start-2 col-end-5 row-start-2 row-end-4 rounded-lg overflow-y-auto max-h-screen mx-12'>
-                <div className='flex flex-row gap-5 mx-6 scrollbar scrollbar-transparent hover:scrollbar-thin hover:scrollbar-thumb-gray-800'>
-                    <LearningJourneyCards />
-                    <LearningJourneyCards />
-                    <LearningJourneyCards />
-                    <LearningJourneyCards />
-                   
-
+            <div className='col-start-2 col-end-5 row-start-2 row-end-4 rounded-lg overflow-y-auto max-h-screen mx-12 scrollbar-thin scrollbar-thumb-gray-800'>
+                <div className={learningJourneyCards.length>0?'grid grid-cols-4 gap-6 mx-6':'mx-6 px-32 mt-16'}>
+                        {learningJourneyCards.length>0 ? learningJourneyCards:<EmptySlate/>}
                 </div>
             </div>
-            <div className='col-start-2 col-end-5 row-start-4 row-end-6 rounded-lg overflow-y-auto max-h-screen mx-12 pt-6'>
+            <div className={learningJourneyCards.length>0?'col-start-2 col-end-5 row-start-4 row-end-6 rounded-lg overflow-y-auto max-h-screen mx-12 pt-6':'hidden'}>
                 <div className="ml-6 mb-3 text-2xl font-medium">
                     Most Recent Journey - <span className='font-bold'>Frontend Engineer</span>
                 </div>
@@ -61,7 +104,7 @@ const StaffHomePage = () => {
                     </a>
                 </div>
             </div>
-            <div className="col-start-4 row-start-6 mr-12 my-auto">
+            <div className={learningJourneyCards.length>0?"col-start-4 row-start-6 mr-12 my-auto":'hidden'}>
                 <a class="group flex items-center justify-between rounded-lg border border-gray-600 bg-gray-600 px-5 py-3 transition-colors hover:bg-transparent focus:outline-none focus:ring" href="/staffrolepage">
                     <span class="font-medium text-white transition-colors group-hover:text-gray-600 group-active:text-gray-500">
                         Create Learning Journey

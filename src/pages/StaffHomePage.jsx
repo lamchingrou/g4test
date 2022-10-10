@@ -4,47 +4,51 @@ import LearningJourneyCards from "../components/LearningJourneyCards"
 import React, { createContext, useContext } from "react";
 import EmptySlate from "../components/EmptySlate";
 const StaffHomePage = () => {
+    var staffData = {
+        "data": {
+            "Dept": "Staff",
+            "Email": "jack.sim@allinone.com.sg",
+            "Learning_Journeys": [
+                {
+                    "Role_ID": '1',
+                    "Role_name": "Web Developer",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Completed'
+                },
+                {
+                    "Role_ID": '2',
+                    "Role_name": "Frontend Engineer",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Completed'
+                },
+                {
+                    "Role_ID": '3',
+                    "Role_name": "Backend Engineer",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Completed'
+                },
+                {
+                    "Role_ID": '4',
+                    "Role_name": "Caleb Insulter",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Ongoing'
+                },
+            ],
+            "Completed_Courses":['1'],
+            "Completed_Skills":['1','2'],
+            "Staff_FName": "John",
+            "Staff_ID": 1,
+            "Staff_LName": "Sim"
+        }
+    }
+    //user's learning journeys
+    var userLearningJourneys = staffData.data['Learning_Journeys']
 
-    //Fetch user's learning journeys
-    var userLearningJourneys = {
-        
-        'data': [
-                    {
-                        "Journey_ID": '1',
-                        "Role_ID": '1',
-                        "Role_name": "Web Developer",
-                        "Skills": ['1', '2', '3', '4'],
-                        "Courses":['1','6','7'],
-                        "Progress":'Completed'
-                    },
-                    {
-                        "Journey_ID": '2',
-                        "Role_ID": '1',
-                        "Role_name": "Frontend Engineer",
-                        "Skills": ['1', '2', '3', '4'],
-                        "Courses":['1','6','7'],
-                        "Progress":'Completed'
-                    },
-                    {
-                        "Journey_ID": '3',
-                        "Role_ID": '1',
-                        "Role_name": "Backend Engineer",
-                        "Skills": ['1', '2', '3', '4'],
-                        "Courses":['1','6','7'],
-                        "Progress":'Completed'
-                    },
-                    {
-                        "Journey_ID": '4',
-                        "Role_ID": '1',
-                        "Role_name": "Caleb Insulter",
-                        "Skills": ['1', '2', '3', '4'],
-                        "Courses":['1','6','7'],
-                        "Progress":'Ongoing'
-                    },
-                ]
-            }
-
-            const learningJourneyCards = userLearningJourneys.data.map(function(journey){
+            const learningJourneyCards = userLearningJourneys.map(function(journey){
             const roleName = journey['Role_name']
             const progress = journey['Progress']
             const skills = journey['Skills']

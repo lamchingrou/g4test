@@ -25,7 +25,7 @@ const RolePlanner = () => {
         },
     }
 
-    //Fetch Skills By ID
+    //Fetch All Skills
     var skillData = {
         "data": {
             '1': {
@@ -51,58 +51,89 @@ const RolePlanner = () => {
         }
     }
 
-    //Fetch Course Data
+    //Fetch All Courses
     var courseData = {
         "data": {
             '1': {
                 "Course_ID": '1',
                 "Course_name": 'Intro to Javascript',
-                "Course_status": "Unattempted",
+                "Type": "Online"
             },
             '2': {
                 "Course_ID": '2',
                 "Course_name": 'Advanced Javascript',
-                "Course_status": "Unattempted",
+                "Type": "Online"
             },
             "3": {
                 "Course_ID": '3',
                 "Course_name": 'Vue.js',
-                "Course_status": "Unattempted",
+                "Type": "Online"
             },
             '4': {
                 "Course_ID": '4',
                 "Course_name": 'Intro to CSS',
-                "Course_status": "Unattempted",
+                "Type": "Physical"
             },
             '5': {
                 "Course_ID": '5',
                 "Course_name": 'Bootstrap',
-                "Course_status": "Unattempted",
+                "Type": "Online"
             },
             '6': {
                 "Course_ID": '6',
                 "Course_name": 'Tailwind CSS',
-                "Course_status": "Unattempted",
+                "Type": "Online"
             },
             '7': {
                 "Course_ID": '7',
                 "Course_name": 'Intro to HTML',
-                "Course_status": "Unattempted",
+                "Type": "Physical"
             },
             '8': {
                 "Course_ID": '8',
                 "Course_name": 'React.js',
-                "Course_status": "Unattempted",
+                "Type": "Online"
             },
         }
     }
 
-    //Fetch Staff ID
+    //Fetch Staff data by staff ID
     var staffData = {
         "data": {
             "Dept": "Staff",
             "Email": "jack.sim@allinone.com.sg",
-            "Roles": [],
+            "Learning_Journeys": [
+                {
+                    "Role_ID": '1',
+                    "Role_name": "Web Developer",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Completed'
+                },
+                {
+                    "Role_ID": '2',
+                    "Role_name": "Frontend Engineer",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Completed'
+                },
+                {
+                    "Role_ID": '3',
+                    "Role_name": "Backend Engineer",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Completed'
+                },
+                {
+                    "Role_ID": '4',
+                    "Role_name": "Caleb Insulter",
+                    "Skills": ['1', '2', '3', '4'],
+                    "Courses": ['1', '6', '7'],
+                    "Progress": 'Ongoing'
+                },
+            ],
+            "Completed_Courses":['1'],
+            "Completed_Skills":['1','2'],
             "Staff_FName": "John",
             "Staff_ID": 1,
             "Staff_LName": "Sim"
@@ -110,9 +141,8 @@ const RolePlanner = () => {
     }
 
 
-
     function createJourney() {
-
+        //Add new learning journey to userID
     }
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);
@@ -126,8 +156,8 @@ const RolePlanner = () => {
 
         if (skillData.data[skillid]) {
             const courseArray = skillData.data[skillid]['Skill_courses'].map(function (courseid) {
-                if (courseData.data[courseid] && courseData.data[courseid]['Course_status'] == "Unattempted") {
-                    return {value: courseid, label: courseData.data[courseid]['Course_name'], hidden:false}
+                if (courseData.data[courseid] && !staffData.data['Completed_Courses'].includes(courseid) ) {
+                    return {value: courseid, label: courseData.data[courseid]['Course_name'], hidden:false, type:courseData.data[courseid]['Type']}
                 }
                 else {
                     return {value: courseid, label: courseData.data[courseid]['Course_name'], hidden:true}

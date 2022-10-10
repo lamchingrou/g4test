@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {SelectedContext} from "../components/RolePlannerContext"
+import { SelectedContext } from "../components/RolePlannerContext"
 const CheckBox = React.forwardRef(
   (
     {
@@ -18,11 +18,12 @@ const CheckBox = React.forwardRef(
       title = "",
       disabled,
       hidden,
+      type,
       ...other
     },
     ref
   ) => {
-    const {selected, setSelected} = useContext(SelectedContext)
+    const { selected, setSelected } = useContext(SelectedContext)
     const labelClasses = [
       "text-base",
       "text-black-7",
@@ -30,8 +31,9 @@ const CheckBox = React.forwardRef(
       "cursor-pointer",
       "w-full",
       "text-start",
+      "grid grid-rows-2"
     ];
-    
+
     if (hideLabel) {
       labelClasses.push("hidden");
     }
@@ -66,6 +68,7 @@ const CheckBox = React.forwardRef(
     const label = labelText ? (
       <label htmlFor={id} className={labelClasses.join(" ")}>
         {labelText}
+        <span className='text-xs text-gray-600'>{type}</span>
       </label>
     ) : null;
     const handleOnchange = (e) => {
@@ -75,7 +78,7 @@ const CheckBox = React.forwardRef(
     };
 
     return (
-      <div className={hidden==true?"hidden":"flex hover:bg-gray-200 rounded-md w-full"}>
+      <div className={hidden == true ? "hidden" : "flex hover:bg-gray-200 rounded-md w-full"}>
         <div className="flex items-center m-2 w-full">
           <input
             type="checkbox"
@@ -86,8 +89,7 @@ const CheckBox = React.forwardRef(
             id={id}
             disabled={disabled}
           />
-
-          {label}
+       {label}
         </div>
       </div>
 

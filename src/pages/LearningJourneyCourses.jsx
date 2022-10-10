@@ -1,7 +1,7 @@
 import StaffSideBar from "../components/StaffSideBar"
 import SearchInput from "../components/SearchInput"
 import React, { useContext } from "react";
-import SkillCard from '../components/SkillCard'
+import StaffCourseRows from "../components/StaffCourseRows"
 import {
     BrowserRouter as Router,
     Switch,
@@ -10,7 +10,7 @@ import {
     useParams
 } from "react-router-dom";
 import '../index.css'
-const LearningJourneySkills = () => {   
+const LearningJourneyCourses = () => {   
 
     //Fetch All Skills
     var skillData = {
@@ -84,20 +84,14 @@ const LearningJourneySkills = () => {
      //user's learning journeys
     const userLearningJourneys = staffData.data['Learning_Journeys']
     
-    let {roleid} = useParams()
-    console.log(roleid)
+    let {roleid, skillid} = useParams()
+    console.log(skillid)
     let journey = null
     for (let obj of userLearningJourneys) {
         if (obj['Role_ID'] == roleid) {
             journey = obj
         }
     }
-
-    const skillCards = journey['Skills'].map(function(skillid){
-        return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']}/>
-    })
-    
-
 
     return (
         <div className="container-full grid grid-cols-4 grid-rows-6 max-h-screen">
@@ -106,24 +100,29 @@ const LearningJourneySkills = () => {
             </div>
 
             <div className='col-start-2 col-end-4 my-auto'>
-                <h1 className="text-3xl font-medium text-start ml-12">
-                    Learning Journey - <span className='font-bold'>{journey['Role_name']}</span>
+                <h1 className="text-2xl font-medium text-start ml-12">
+                    Learning Journey - {journey['Role_name']} - <span className='font-bold'>{skillData.data[skillid]['Skill_name']}</span>
                 </h1>
             </div>
 
             <div className='col-end-5 col-span-1 my-auto mx-12'>
                 <SearchInput />
             </div>
-            <div className='col-start-2 col-end-5 row-start-2 row-end-6 rounded-lg overflow-y-auto max-h-screen mx-12'>
-                <h1 className='font-bold text-3xl sticky top-0 w-full text-center bg-white'>{journey['Skills'].length} Skills</h1>
-                <div className='grid grid-cols-4 p-6 gap-6'>
-
-                   {skillCards}
-
+            <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
+                        <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
+                            <thead>
+                                <tr className='h-16 bg-gray-100 sticky top-0'>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Course Name</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Course Status</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Type</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900"></th>
+                                </tr>
+                            </thead>
+                               <StaffCourseRows/>
+                        </table>
                 </div>
-            </div>
         </div>
     )
 }
 
-export default LearningJourneySkills
+export default LearningJourneyCourses

@@ -8,7 +8,7 @@ export default function LearningJourneyCards(props) {
     const courses = props.courses;
     const progress = props.progress;
     return (
-        <a class="relative rounded-xl border-4 border-gray-800 hover:bg-gray-100 py-10 min-w-fit mb-6 w-full" href={"staffhomepage/" + journeyObj['Journey_ID']}>
+        <a class="relative rounded-xl border-4 border-gray-800 hover:bg-gray-100 py-10 min-w-fit mb-6 w-full" href={"staffhomepage/" + journeyObj['Role_ID']}>
             <div class="mt-4 text-gray-500 text-center">
                 {progress == 'Completed' ? 
                     <svg className='mx-auto' width="64" height="56" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">

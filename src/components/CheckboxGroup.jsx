@@ -47,8 +47,8 @@ const CheckBoxGroup = React.forwardRef(
       forceUpdate();
     };
     return (
-      <div className="flex flex-col">
-        <div className="flex flex-col ">
+      <div className="flex flex-col m-3">
+        <div className="flex flex-col">
           {options.map((option, index) => {
             return (
               <div className="flex items-center justify-between" key={index}>

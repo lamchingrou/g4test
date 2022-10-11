@@ -365,8 +365,8 @@ const RolePlanner = () => {
                     return {value: courseid, label: courseData.data[courseid]['Course_Name'], hidden:true}
                 }
             })
-            return <div className='rounded-lg p-5 bg-gray-100'>
-                <h1 className='text-lg font-bold'>
+            return <div className='rounded-lg bg-gray-100 text-center'>
+                <h1 className='text-lg font-bold bg-white border p-5 rounded-t-lg'>
                     {skillData.data[skillid]['Skill_name']}
                 </h1>
                 <SelectedContext.Provider value={{selected, setSelected}}>
@@ -385,16 +385,17 @@ const RolePlanner = () => {
                 <StaffSideBar select='Job Roles' />
             </div>
 
-            <div className='col-start-2 col-end-4 mt-4'>
+            <div className='col-start-2 col-end-4 my-auto'>
                 <h1 className="text-3xl font-medium text-start ml-12">
-                    Role Planner - <span className="text-3xl font-bold">{roleData.data[roleid]['Role_name']}</span>
+                    Role Selected - <span className="text-3xl font-bold">{roleData.data[roleid]['Role_name']}</span>
                 </h1>
                 <h1 className="text-xl font-medium text-start ml-12 mt-4">
-                    Skills - <span className='font-bold'>Select Courses</span>
+                    <span className='font-semibold'>Select the <span className='font-bold'>Courses</span> for the required skills</span>
                 </h1>
             </div>
-            <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg  max-h-screen mx-12 overflow-y-auto'>
-                <div className='grid grid-cols-2 gap-6 m-6' onChange={handleOnchange}>
+            <div className='col-start-2 col-end-5 row-start-2 row-end-6 rounded-lg  max-h-screen mx-12 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800'>
+                <h1 className='p-4 text-xl font-bold text-center sticky top-0 bg-white'>{roleData.data[roleid]['Role_skills'].length} {roleData.data[roleid]['Role_skills'].length == 1?'Skill':'Skills'} Required</h1>
+                <div className='grid grid-cols-2 gap-6 mx-6' onChange={handleOnchange}>
                     {dropdowns}
                 </div>
             </div>

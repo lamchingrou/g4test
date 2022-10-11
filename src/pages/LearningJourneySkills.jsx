@@ -100,7 +100,13 @@ const LearningJourneySkills = () => {
     }
 
     const skillCards = journey['Skills'].map(function(skillid){
-        return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']}/>
+        if(staffData.data['Completed_Skills'].includes(skillid)){
+            return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']} completed={true}/>
+        }
+        else{
+            return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']} completed={false}/>
+        }
+        
     })
     
 
@@ -121,7 +127,7 @@ const LearningJourneySkills = () => {
                 <SearchInput />
             </div>
             <div className='col-start-2 col-end-5 row-start-2 row-end-6 rounded-lg overflow-y-auto max-h-screen mx-12'>
-                <h1 className='font-bold text-3xl sticky top-0 w-full text-center bg-white'>{journey['Skills'].length} Skills</h1>
+                <h1 className='font-bold text-2xl sticky top-0 w-full text-center bg-white'>{journey['Skills'].length} Skills Required</h1>
                 <div className='grid grid-cols-4 p-6 gap-6'>
 
                    {skillCards}

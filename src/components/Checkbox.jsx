@@ -55,7 +55,7 @@ const CheckBox = React.forwardRef(
       "bg-green-100",
       "cursor-pointer",
       "border-0",
-      "mr-3"
+      "mr-3",
     ];
 
 

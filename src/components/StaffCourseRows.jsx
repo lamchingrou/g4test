@@ -271,6 +271,11 @@ export default function StaffCourseRows() {
             "Dept": "Sales",
             "Role": "2",
             "Email": "jack.sim@allinone.com.sg",
+            "Completed_Courses": ['COR001'],
+            "Completed_Skills": ['1', '2'],
+            "Staff_FName": "John",
+            "Staff_ID": '130001',
+            "Staff_LName": "Sim",
             "Learning_Journeys": [
                 {
                     "Role_ID": '1',
@@ -301,11 +306,6 @@ export default function StaffCourseRows() {
                     "Progress": 'Ongoing'
                 },
             ],
-            "Completed_Courses": ['COR001'],
-            "Completed_Skills": ['1', '2'],
-            "Staff_FName": "John",
-            "Staff_ID": '130001',
-            "Staff_LName": "Sim"
         }
     }
     const { roleid, skillid } = useParams()

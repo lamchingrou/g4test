@@ -17,23 +17,28 @@ const LearningJourneySkills = () => {
         "data": {
             '1': {
                 "Skill_ID": '1',
-                "Skill_name": "Javascript",
-                "Skill_courses": ['1', '2', '3']
+                "Skill_name": "Management",
+                "Skill_courses": ['COR001', 'tch018', 'tch012','MGT002', 'MGT003']
             },
             '2': {
                 "Skill_ID": '2',
-                "Skill_name": "CSS",
-                "Skill_courses": ['6', '5', '4']
+                "Skill_name": "IT",
+                "Skill_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004']
             },
             '3': {
                 "Skill_ID": '3',
-                "Skill_name": "HTML",
-                "Skill_courses": ['7', '4']
+                "Skill_name": "Operations",
+                "Skill_courses": ['COR001', 'tch006', 'tch001','tch018']
             },
             '4': {
                 "Skill_ID": '4',
-                "Skill_name": "Frameworks",
-                "Skill_courses": ['1', '8']
+                "Skill_name": "Data Analytics",
+                "Skill_courses": ['COR001', 'FIN001', 'MGT001']
+            },
+            '5': {
+                "Skill_ID": '5',
+                "Skill_name": "Digital Leadership",
+                "Skill_courses": ['COR001', 'FIN001', 'MGT001', 'tch005', 'tch009']
             }
         }
     }
@@ -41,42 +46,43 @@ const LearningJourneySkills = () => {
     //Fetch Staff data By ID
     var staffData = {
         "data": {
-            "Dept": "Staff",
+            "Dept": "Sales",
+            "Role":"2",
             "Email": "jack.sim@allinone.com.sg",
             "Learning_Journeys": [
                 {
                     "Role_ID": '1',
                     "Role_name": "Web Developer",
                     "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '2',
                     "Role_name": "Frontend Engineer",
-                    "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Skills": ['1', '2', '3', '4','5'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '3',
                     "Role_name": "Backend Engineer",
-                    "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Skills": ['1', '2', '3', '4','5'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '4',
                     "Role_name": "Caleb Insulter",
                     "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Ongoing'
                 },
             ],
-            "Completed_Courses":['1'],
+            "Completed_Courses":['COR001'],
             "Completed_Skills":['1','2'],
             "Staff_FName": "John",
-            "Staff_ID": 1,
+            "Staff_ID": '130001',
             "Staff_LName": "Sim"
         }
     }

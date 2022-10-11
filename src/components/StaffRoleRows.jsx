@@ -10,27 +10,27 @@ export default function StaffRoleRows() {
         "data": {
             '1': {
                 "Role_ID": 1,
-                "Role_name": "Web Developer",
-                "Role_skills": ['1', '2', '3', '4'],
-                "Role_courses": ['1', '6', '7']
+                "Role_name": "IT Support",
+                "Role_skills": ['2'],
+                "Role_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
             },
             '2': {
                 "Role_ID": 2,
-                "Role_name": "Frontend Engineer",
+                "Role_name": "Marketing Gal",
                 "Role_skills": ['1', '2', '3', '4'],
-                "Role_courses": ['1', '6', '7']
+                "Role_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
             },
             '3': {
                 "Role_ID": 3,
-                "Role_name": "Backend Engineer",
-                "Role_skills": ['1', '2', '3', '4'],
-                "Role_courses": ['1', '6', '7']
+                "Role_name": "Boss",
+                "Role_skills": ['1'],
+                "Role_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
             },
             '4': {
                 "Role_ID": 4,
                 "Role_name": "Caleb Insulter",
                 "Role_skills": ['1', '2', '3', '4'],
-                "Role_courses": ['1', '6', '7']
+                "Role_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
             },
         }
     }
@@ -38,46 +38,46 @@ export default function StaffRoleRows() {
     //Staff Data
     var staffData = {
         "data": {
-            "Dept": "Staff",
+            "Dept": "Sales",
+            "Role":"2",
             "Email": "jack.sim@allinone.com.sg",
             "Learning_Journeys": [
                 {
                     "Role_ID": '1',
                     "Role_name": "Web Developer",
                     "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '2',
                     "Role_name": "Frontend Engineer",
-                    "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Skills": ['1', '2', '3', '4','5'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '3',
                     "Role_name": "Backend Engineer",
-                    "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Skills": ['1', '2', '3', '4','5'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '4',
                     "Role_name": "Caleb Insulter",
                     "Skills": ['1', '2', '3', '4'],
-                    "Courses": ['1', '6', '7'],
+                    "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Ongoing'
                 },
             ],
-            "Completed_Courses":['1'],
+            "Completed_Courses":['COR001'],
             "Completed_Skills":['1','2'],
             "Staff_FName": "John",
-            "Staff_ID": 1,
+            "Staff_ID": '130001',
             "Staff_LName": "Sim"
         }
     }
-
     const rows = Object.values(roleData.data).map(function (item, index) {
         return <tr className="hover:bg-gray-200">
             <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">{item['Role_name']}</td>

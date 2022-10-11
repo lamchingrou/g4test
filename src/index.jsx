@@ -14,6 +14,8 @@ import StaffSkillPage from './pages/StaffSkillPage.jsx'
 import RolePlanner from './pages/RolePlanner.jsx'
 import LearingJourneySkills from './pages/LearningJourneySkills'
 import LearningJourneyCourses from "./pages/LearningJourneyCourses"
+import SuccessPage from "./pages/SuccessPage"
+
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
@@ -25,6 +27,7 @@ ReactDOM.render(
                     <Route path="/staffrolepage/" element={<StaffRolePage />}></Route>
                     <Route path="/staffskillpage/" element={<StaffSkillPage />}></Route>
                     <Route path="/roleplanner/:staffid/:roleid" element={<RolePlanner />}></Route>
+                    <Route path="/successPage/:rolename" element={<SuccessPage />}></Route>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

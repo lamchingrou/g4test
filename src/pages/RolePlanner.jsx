@@ -1,4 +1,4 @@
-import React, { useState,useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import StaffSideBar from "../components/StaffSideBar"
 import CheckBoxGroup from "../components/CheckboxGroup";
 import {
@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { SelectedContext } from "../components/RolePlannerContext";
 import { render } from "@testing-library/react";
+
 const RolePlanner = () => {
     //Get params
     let { staffid, roleid } = useParams()
@@ -50,7 +51,7 @@ const RolePlanner = () => {
             '1': {
                 "Skill_ID": '1',
                 "Skill_name": "Management",
-                "Skill_courses": ['COR001', 'tch018', 'tch012','MGT002', 'MGT003']
+                "Skill_courses": ['COR001', 'tch018', 'tch012', 'MGT002', 'MGT003']
             },
             '2': {
                 "Skill_ID": '2',
@@ -60,7 +61,7 @@ const RolePlanner = () => {
             '3': {
                 "Skill_ID": '3',
                 "Skill_name": "Operations",
-                "Skill_courses": ['COR001', 'tch006', 'tch001','tch018']
+                "Skill_courses": ['COR001', 'tch006', 'tch001', 'tch018']
             },
             '4': {
                 "Skill_ID": '4',
@@ -302,7 +303,7 @@ const RolePlanner = () => {
     var staffData = {
         "data": {
             "Dept": "Sales",
-            "Role":"2",
+            "Role": "2",
             "Email": "jack.sim@allinone.com.sg",
             "Learning_Journeys": [
                 {
@@ -315,14 +316,14 @@ const RolePlanner = () => {
                 {
                     "Role_ID": '2',
                     "Role_name": "Frontend Engineer",
-                    "Skills": ['1', '2', '3', '4','5'],
+                    "Skills": ['1', '2', '3', '4', '5'],
                     "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '3',
                     "Role_name": "Backend Engineer",
-                    "Skills": ['1', '2', '3', '4','5'],
+                    "Skills": ['1', '2', '3', '4', '5'],
                     "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
@@ -334,8 +335,8 @@ const RolePlanner = () => {
                     "Progress": 'Ongoing'
                 },
             ],
-            "Completed_Courses":['COR001'],
-            "Completed_Skills":['1','2'],
+            "Completed_Courses": ['COR001'],
+            "Completed_Skills": ['1', '2'],
             "Staff_FName": "John",
             "Staff_ID": '130001',
             "Staff_LName": "Sim"
@@ -348,8 +349,16 @@ const RolePlanner = () => {
     }
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({}), []);
-    function handleOnchange(e){
+    function handleOnchange() {
         forceUpdate()
+    }
+    function changeSKillColor(courses){
+        for(let id of selected){
+            if(courses.includes(id)){
+                return true
+            }
+        }
+        
     }
     const [selected, setSelected] = useState([]);
 
@@ -358,19 +367,19 @@ const RolePlanner = () => {
 
         if (skillData.data[skillid]) {
             const courseArray = skillData.data[skillid]['Skill_courses'].map(function (courseid) {
-                if (courseData.data[courseid] && !staffData.data['Completed_Courses'].includes(courseid) ) {
-                    return {value: courseid, label: courseData.data[courseid]['Course_Name'], hidden:false, type:courseData.data[courseid]['Course_Type']}
+                if (courseData.data[courseid] && !staffData.data['Completed_Courses'].includes(courseid)) {
+                    return { value: courseid, label: courseData.data[courseid]['Course_Name'], hidden: false, type: courseData.data[courseid]['Course_Type'] }
                 }
                 else {
-                    return {value: courseid, label: courseData.data[courseid]['Course_Name'], hidden:true}
+                    return { value: courseid, label: courseData.data[courseid]['Course_Name'], hidden: true }
                 }
             })
-            return <div className='rounded-lg bg-gray-100 text-center'>
-                <h1 className='text-lg font-bold bg-white border p-5 rounded-t-lg'>
+            return <div className='rounded-lg bg-gray-100 text-center border-4 border-gray-600' onChange={()=>handleOnchange()}>
+                <h1 className={changeSKillColor(skillData.data[skillid]['Skill_courses']) ? 'text-lg font-bold bg-green-200 p-3 rounded-t-lg border-b-4 border-gray-600': 'text-lg font-bold bg-white p-3 rounded-t-lg border-b-4 border-gray-600'}>
                     {skillData.data[skillid]['Skill_name']}
                 </h1>
-                <SelectedContext.Provider value={{selected, setSelected}}>
-                    <CheckBoxGroup options= {courseArray} selected={selected} disabled = {false}/>
+                <SelectedContext.Provider value={{ selected, setSelected }}>
+                    <CheckBoxGroup options={courseArray} selected={selected} disabled={false} />
                 </SelectedContext.Provider>
             </div>
         }
@@ -394,14 +403,14 @@ const RolePlanner = () => {
                 </h1>
             </div>
             <div className='col-start-2 col-end-5 row-start-2 row-end-6 rounded-lg  max-h-screen mx-12 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800'>
-                <h1 className='p-4 text-xl font-bold text-center sticky top-0 bg-white'>{roleData.data[roleid]['Role_skills'].length} {roleData.data[roleid]['Role_skills'].length == 1?'Skill':'Skills'} Required</h1>
-                <div className='grid grid-cols-2 gap-6 mx-6' onChange={handleOnchange}>
-                    {dropdowns}
+                <h1 className='p-4 text-xl font-bold text-center sticky top-0 bg-white'>{roleData.data[roleid]['Role_skills'].length} {roleData.data[roleid]['Role_skills'].length == 1 ? 'Skill' : 'Skills'} Required</h1>
+                <div className='grid grid-cols-2 gap-6 mx-6'>
+                        {dropdowns}
                 </div>
             </div>
 
             <div className="col-start-4 row-start-6 mr-12 my-auto">
-                <a class="group flex items-center justify-between rounded-lg border border-gray-600 bg-gray-600 px-5 py-3 transition-colors hover:bg-transparent focus:outline-none focus:ring" href="/successpage" onClick={createJourney()}>
+                <a class="group flex items-center justify-between rounded-lg border border-gray-600 bg-gray-600 px-5 py-3 transition-colors hover:bg-transparent focus:outline-none focus:ring" href={"/successpage/" + roleData.data[roleid]['Role_name']} onClick={createJourney()}>
                     <span class="font-medium text-white transition-colors group-hover:text-gray-600 group-active:text-gray-500">
                         Create Learning Journey
                     </span>

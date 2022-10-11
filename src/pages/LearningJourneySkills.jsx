@@ -10,7 +10,7 @@ import {
     useParams
 } from "react-router-dom";
 import '../index.css'
-const LearningJourneySkills = () => {   
+const LearningJourneySkills = () => {
 
     //Fetch All Skills
     var skillData = {
@@ -18,7 +18,7 @@ const LearningJourneySkills = () => {
             '1': {
                 "Skill_ID": '1',
                 "Skill_name": "Management",
-                "Skill_courses": ['COR001', 'tch018', 'tch012','MGT002', 'MGT003']
+                "Skill_courses": ['COR001', 'tch018', 'tch012', 'MGT002', 'MGT003']
             },
             '2': {
                 "Skill_ID": '2',
@@ -28,7 +28,7 @@ const LearningJourneySkills = () => {
             '3': {
                 "Skill_ID": '3',
                 "Skill_name": "Operations",
-                "Skill_courses": ['COR001', 'tch006', 'tch001','tch018']
+                "Skill_courses": ['COR001', 'tch006', 'tch001', 'tch018']
             },
             '4': {
                 "Skill_ID": '4',
@@ -47,7 +47,7 @@ const LearningJourneySkills = () => {
     var staffData = {
         "data": {
             "Dept": "Sales",
-            "Role":"2",
+            "Role": "2",
             "Email": "jack.sim@allinone.com.sg",
             "Learning_Journeys": [
                 {
@@ -60,14 +60,14 @@ const LearningJourneySkills = () => {
                 {
                     "Role_ID": '2',
                     "Role_name": "Frontend Engineer",
-                    "Skills": ['1', '2', '3', '4','5'],
+                    "Skills": ['1', '2', '3', '4', '5'],
                     "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
                 {
                     "Role_ID": '3',
                     "Role_name": "Backend Engineer",
-                    "Skills": ['1', '2', '3', '4','5'],
+                    "Skills": ['1', '2', '3', '4', '5'],
                     "Courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004'],
                     "Progress": 'Completed'
                 },
@@ -79,18 +79,18 @@ const LearningJourneySkills = () => {
                     "Progress": 'Ongoing'
                 },
             ],
-            "Completed_Courses":['COR001'],
-            "Completed_Skills":['1','2'],
+            "Completed_Courses": ['COR001'],
+            "Completed_Skills": ['1', '2'],
             "Staff_FName": "John",
             "Staff_ID": '130001',
             "Staff_LName": "Sim"
         }
     }
 
-     //user's learning journeys
+    //user's learning journeys
     const userLearningJourneys = staffData.data['Learning_Journeys']
-    
-    let {roleid} = useParams()
+
+    let { roleid } = useParams()
     console.log(roleid)
     let journey = null
     for (let obj of userLearningJourneys) {
@@ -99,16 +99,16 @@ const LearningJourneySkills = () => {
         }
     }
 
-    const skillCards = journey['Skills'].map(function(skillid){
-        if(staffData.data['Completed_Skills'].includes(skillid)){
-            return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']} completed={true}/>
+    const skillCards = journey['Skills'].map(function (skillid) {
+        if (staffData.data['Completed_Skills'].includes(skillid)) {
+            return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']} completed={true} />
         }
-        else{
-            return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']} completed={false}/>
+        else {
+            return <SkillCard name={skillData.data[skillid]['Skill_name']} numCourses={skillData.data[skillid]['Skill_courses'].length} skillid={skillid} roleid={journey['Role_ID']} completed={false} />
         }
-        
+
     })
-    
+
 
 
     return (
@@ -130,7 +130,7 @@ const LearningJourneySkills = () => {
                 <h1 className='font-bold text-2xl sticky top-0 w-full text-center bg-white'>{journey['Skills'].length} Skills Required</h1>
                 <div className='grid grid-cols-4 p-6 gap-6'>
 
-                   {skillCards}
+                    {skillCards}
 
                 </div>
             </div>

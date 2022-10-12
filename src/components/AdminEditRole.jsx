@@ -63,18 +63,18 @@ const AdminEditRole = () => {
                                     <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Delete Skill</th>
                                 </tr>
                             </thead>
-                            <AdminAddSkills/>
+                            <AdminDeleteSkills/>
                         </table>
                 </div>
                 <div className='col-start-4 col-end-6 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
                         <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
                             <thead>
                                 <tr className='h-16 bg-gray-100 sticky top-0'>
-                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">All Skills</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Skills Left</th>
                                     <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Add Skill</th>
                                 </tr>
                             </thead>
-                            <AdminDeleteSkills/>
+                            <AdminAddSkills/>
                         </table>
                 </div>
             </div>

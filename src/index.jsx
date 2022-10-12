@@ -19,7 +19,8 @@ import SuccessPage from "./pages/SuccessPage"
 import AdminRolePage from "./pages/AdminRolePage"
 import AdminCoursePage from "./pages/AdminCoursePage"
 import AdminSkillPage from "./pages/AdminSkillPage"
-import AdminEditRole from './components/AdminEditRole';
+import AdminEditRole from './components/AdminEditRole'
+import "./global.js"
 
 ReactDOM.render(
     <React.StrictMode>

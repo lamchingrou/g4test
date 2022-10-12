@@ -1,54 +1,7 @@
-var skillData = {
-    "data": {
-        '1': {
-            "Skill_ID": '1',
-            "Skill_name": "Management",
-            "Skill_courses": ['COR001', 'tch018', 'tch012', 'MGT002', 'MGT003']
-        },
-        '2': {
-            "Skill_ID": '2',
-            "Skill_name": "IT",
-            "Skill_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004']
-        },
-        '3': {
-            "Skill_ID": '3',
-            "Skill_name": "Operations",
-            "Skill_courses": ['COR001', 'tch006', 'tch001', 'tch018']
-        },
-        '4': {
-            "Skill_ID": '4',
-            "Skill_name": "Data Analytics",
-            "Skill_courses": ['COR001', 'FIN001', 'MGT001']
-        },
-        '5': {
-            "Skill_ID": '5',
-            "Skill_name": "Digital Leadership",
-            "Skill_courses": ['COR001', 'FIN001', 'MGT001', 'tch005', 'tch009']
-        }
-    }
-}
-
-var skillsAdded = {
-    "data": {
-        '1': {
-            "Skill_ID": '1',
-            "Skill_name": "Management",
-            "Skill_courses": ['COR001', 'tch018', 'tch012', 'MGT002', 'MGT003']
-        },
-        '2': {
-            "Skill_ID": '2',
-            "Skill_name": "IT",
-            "Skill_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004']
-        },
-        '3': {
-            "Skill_ID": '3',
-            "Skill_name": "Operations",
-            "Skill_courses": ['COR001', 'tch006', 'tch001', 'tch018']
-        }
-    }
-}
+import {skillData, skillsAdded} from "../global"
 
 var skillsLeft = {}
+
 for(let key of Object.keys(skillData.data)){
     if (key in skillsAdded.data){
         continue
@@ -57,11 +10,10 @@ for(let key of Object.keys(skillData.data)){
     }
 }
 
-console.log(skillsLeft)
+// console.log("skillsLeft", skillsLeft)
 
-export default function AdminAddSkills() {
-
-    const rows = Object.values(skillData.data).map(function (item, index) {
+const AdminAddSkills = () => {
+    const rows = Object.values(skillsLeft).map(function (item, index) {
         return <tr className="hover:bg-white-200">
             <td className="whitespace-nowrap py-2 font-medium text-gray-900 text-center">{item['Skill_name']}</td>
             <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">
@@ -81,3 +33,5 @@ export default function AdminAddSkills() {
 
     )
 }
+
+export default AdminAddSkills

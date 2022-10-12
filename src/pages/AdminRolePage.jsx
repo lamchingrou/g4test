@@ -1,11 +1,12 @@
-import StaffSideBar from "../components/StaffSideBar"
+import AdminSideBar from "../components/AdminSideBar"
+import AdminRoleRows from "../components/AdminRoleRows"
 import SearchInput from "../components/SearchInput"
-import StaffRoleRows from "../components/StaffRoleRows"
-const StaffRolePage = () => {
-    return (
+
+const AdminRolePage = () => {
+    return(
         <div className="container-full grid grid-cols-4 grid-rows-6 max-h-screen">
             <div className="col-span-1">
-                <StaffSideBar select='Job Roles' />
+                <AdminSideBar select='Job Roles' />
             </div>
             
             <div className='col-start-2 col-end-3 my-auto'>
@@ -21,13 +22,11 @@ const StaffRolePage = () => {
                         <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
                             <thead>
                                 <tr className='h-16 bg-gray-100 sticky top-0'>
-                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Role Details</th>
-                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Skills</th>
-                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Courses</th>
-                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Add to Learning Journey</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Role Name</th>
+                                    <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Edit Role</th>
                                 </tr>
                             </thead>
-                            <StaffRoleRows/>
+                            <AdminRoleRows/>
                         </table>
                 </div>
             </div>
@@ -35,4 +34,4 @@ const StaffRolePage = () => {
     )
 }
 
-export default StaffRolePage
+export default AdminRolePage

@@ -15,7 +15,11 @@ import RolePlanner from './pages/RolePlanner.jsx'
 import LearingJourneySkills from './pages/LearningJourneySkills'
 import LearningJourneyCourses from "./pages/LearningJourneyCourses"
 import SuccessPage from "./pages/SuccessPage"
-import SkillVerticalTimeline from "./pages/SkillVerticalTimeline"
+// import SkillVerticalTimeline from "./pages/SkillVerticalTimeline"
+import AdminRolePage from "./pages/AdminRolePage"
+import AdminCoursePage from "./pages/AdminCoursePage"
+import AdminSkillPage from "./pages/AdminSkillPage"
+import AdminEditRole from './components/AdminEditRole';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -30,6 +34,11 @@ ReactDOM.render(
                     <Route path="/staffskillpage/" element={<StaffSkillPage />}></Route>
                     <Route path="/roleplanner/:staffid/:roleid" element={<RolePlanner />}></Route>
                     <Route path="/successPage/:rolename" element={<SuccessPage />}></Route>
+
+                    <Route path="/adminrolepage/" element={<AdminRolePage />}></Route>
+                    <Route path="/admincoursepage/" element={<AdminCoursePage />}></Route>
+                    <Route path="/adminskillpage/" element={<AdminSkillPage />}></Route>
+                    <Route path="/admineditrole/:roleid" element={<AdminEditRole/>}></Route>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

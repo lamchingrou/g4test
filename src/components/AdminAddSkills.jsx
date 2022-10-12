@@ -28,6 +28,37 @@ var skillData = {
     }
 }
 
+var skillsAdded = {
+    "data": {
+        '1': {
+            "Skill_ID": '1',
+            "Skill_name": "Management",
+            "Skill_courses": ['COR001', 'tch018', 'tch012', 'MGT002', 'MGT003']
+        },
+        '2': {
+            "Skill_ID": '2',
+            "Skill_name": "IT",
+            "Skill_courses": ['COR001', 'tch019', 'HRD001', 'tch009', 'tch013', 'MGT004']
+        },
+        '3': {
+            "Skill_ID": '3',
+            "Skill_name": "Operations",
+            "Skill_courses": ['COR001', 'tch006', 'tch001', 'tch018']
+        }
+    }
+}
+
+var skillsLeft = {}
+for(let key of Object.keys(skillData.data)){
+    if (key in skillsAdded.data){
+        continue
+    } else {
+        skillsLeft[key] = skillData.data[key]
+    }
+}
+
+console.log(skillsLeft)
+
 export default function AdminAddSkills() {
 
     const rows = Object.values(skillData.data).map(function (item, index) {

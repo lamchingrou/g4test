@@ -15,9 +15,10 @@ const AdminRolePage = () => {
                     Job Roles
                 </h1>
             </div>
-            <div className='col-start-3 col-end-4 my-auto mx-12 text-end'>
+            <div className='col-end-5 my-auto mx-12 text-end'>
+            {/* <div className='col-start-3 col-end-4 my-auto mx-12 text-end'> */}
                 <a
-                    class="inline-flex items-center rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                    class="inline-flex items-center rounded-2xl border border-gray-600 bg-gray-600 px-6 py-3 text-white hover:bg-transparent hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500"
                     href="/AdminCreateRole"
                 >
                     <span class="text-sm font-medium"> Create Role </span>
@@ -38,9 +39,9 @@ const AdminRolePage = () => {
                     </svg>
                 </a>
             </div>
-            <div className='col-end-5 col-span-1 my-auto mx-12'>
+            {/* <div className='col-end-5 col-span-1 my-auto mx-12'>
                 <SearchInput />
-            </div>
+            </div> */}
             <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
                 <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
                     <thead>

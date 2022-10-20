@@ -3,71 +3,13 @@ import SearchInput from "../components/SearchInput"
 import AdminAddSkills from "../components/AdminAddSkills"
 import AdminDeleteSkills from "../components/AdminDeleteSkills"
 import { useParams } from "react-router-dom"
-import { createContext, useState } from 'react'
-import { skillData } from '../global.js'
+import { useState } from 'react'
+import { skillData, roleData } from '../global.js'
 import { AddedContext } from './RolePlannerContext'
 const AdminEditRole = () => {
     // get params
     const params = useParams()
 
-    var roleData = {
-        "data": {
-            "1": {
-                "Job_ID": "1",
-                "Job_courses": [
-                    "COR001"
-                ],
-                "Job_name": "Sales Person",
-                "Job_skills": [
-                    1,
-                    6
-                ]
-            },
-            "2": {
-                "Job_ID": "2",
-                "Job_courses": [
-                    "COR001",
-                    "COR002"
-                ],
-                "Job_name": "Project Owner",
-                "Job_skills": [
-                    2,
-                    1
-                ]
-            },
-            "3": {
-                "Job_ID": "3",
-                "Job_courses": [
-                    "COR001",
-                    "COR002"
-                ],
-                "Job_name": "Team Manager",
-                "Job_skills": [
-                    3
-                ]
-            },
-            "4": {
-                "Job_ID": "4",
-                "Job_courses": [
-                    "COR003"
-                ],
-                "Job_name": "Data Analytis",
-                "Job_skills": [
-                    4
-                ]
-            },
-            "5": {
-                "Job_ID": "5",
-                "Job_courses": [
-                    "COR003"
-                ],
-                "Job_name": "Software Engineer",
-                "Job_skills": [
-                    5
-                ]
-            }
-        }
-    }
     function processEditRole(roleid){
         if(added[0].length == 0){
             console.log('fail') //fail cos no skills at all

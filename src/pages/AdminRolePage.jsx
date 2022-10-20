@@ -1,6 +1,7 @@
 import AdminSideBar from "../components/AdminSideBar"
-import AdminRoleRows from "../components/AdminRoleRows"
+import AdminRows from "../components/AdminRows"
 import SearchInput from "../components/SearchInput"
+import {roleData, skillData} from '../global.js'
 
 const AdminRolePage = () => {
     return (
@@ -48,7 +49,7 @@ const AdminRolePage = () => {
                             <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Edit Role</th>
                         </tr>
                     </thead>
-                    <AdminRoleRows />
+                    <AdminRows data={roleData.data} name='Job_name' id='Job_ID' message='Role' />
                 </table>
             </div>
         </div>

@@ -105,4 +105,52 @@ const roleData = {
         }
     }
 }
-export {skillData, skillsAdded, roleData}
+
+const staffData = {
+    "data": {
+        "Completed_Courses": [
+            "COR001",
+            "COR002"
+        ],
+        "Completed_Skills": [
+            "1",
+            "2",
+            "3"
+        ],
+        "Dept": "Sales",
+        "Email": "caleb@allinone.com",
+        "Inprogress_Courses": [],
+        "Learning_Journeys": [
+            {
+                "Courses": [
+                    "COR001",
+                    "COR002"
+                ],
+                "Job_ID": 1,
+                "Job_name": "Sales Person",
+                "Progress": "Completed",
+                "Skills": [
+                    1,
+                    6
+                ]
+            },
+            {
+                "Courses": [
+                    "COR001"
+                ],
+                "Job_ID": 2,
+                "Job_name": "Project Owner",
+                "Progress": "Completed",
+                "Skills": [
+                    2,
+                    1
+                ]
+            }
+        ],
+        "Role": "1",
+        "Staff_FName": "Caleb",
+        "Staff_ID": "130001",
+        "Staff_LName": "Cheong"
+    }
+}
+export {skillData, skillsAdded, roleData, staffData}

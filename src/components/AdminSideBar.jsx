@@ -7,7 +7,7 @@ const AdminSideBar = (props) => {
         <div className="flex h-screen flex-col justify-between border-r bg-white">
             <div className="px-4 py-6">
                 <h1 className='text-2xl font-bold'>
-                    LPJS Admin Dashboard
+                    LJPS Admin Dashboard
                 </h1>
                 <nav className="mt-6 flex flex-col space-y-1">
                     <SideBarButton name='Job Roles' selected={props.select} href='/adminrolepage' />

@@ -15,10 +15,32 @@ const AdminSkillPage = () => {
                     Skills
                 </h1>
             </div>
+            <div className='col-start-3 col-end-4 my-auto mx-12 text-end'>
+                <a
+                    class="inline-flex items-center rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                    href="/Admincreateskill"
+                >
+                    <span class="text-sm font-medium"> Create Skill </span>
 
-                <div className='col-end-5 col-span-1 my-auto mx-12'>
-                    <SearchInput />
-                </div>
+                    <svg
+                        class="ml-3 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                    </svg>
+                </a>
+            </div>
+            <div className='col-end-5 col-span-1 my-auto mx-12'>
+                <SearchInput />
+            </div>
                 <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
                         <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
                             <thead>

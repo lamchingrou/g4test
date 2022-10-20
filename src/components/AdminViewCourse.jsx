@@ -1,8 +1,8 @@
 import AdminSideBar from "../components/AdminSideBar"
-import AdminRows from "../components/AdminRows"
+import CourseCards from "../components/CourseCards"
 import {courseData} from '../global.js'
 
-const AdminCoursePage = () => {
+const AdminViewCourse = () => {
     return (
         <div className="container-full grid grid-cols-4 grid-rows-6 max-h-screen">
             <div className="col-span-1">
@@ -14,7 +14,7 @@ const AdminCoursePage = () => {
                     Courses
                 </h1>
             </div>
-            <div className='col-end-5 my-auto mx-12 text-end'>
+            {/* <div className='col-end-5 my-auto mx-12 text-end'>
             </div>
             <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
                 <table class="min-w-full divide-y-2 divide-gray-200 text-sm relative">
@@ -24,12 +24,15 @@ const AdminCoursePage = () => {
                             <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">View Role</th>
                         </tr>
                     </thead>
-                    <AdminRows data={courseData.data} name='Course_Name' id='Course_ID' message='View Course' href='/adminviewcourse/' />
+
                 </table>
+            </div> */}
+            <div className='col-start-2 col-end-5 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
+                <CourseCards data={courseData.data}></CourseCards>
             </div>
         </div>
 
     )
 }
 
-export default AdminCoursePage
+export default AdminViewCourse

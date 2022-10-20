@@ -22,6 +22,8 @@ import AdminSkillPage from "./pages/AdminSkillPage"
 import AdminEditRole from './components/AdminEditRole'
 import AdminCreateRole from './pages/AdminCreateRole'
 import AdminEditSkill from './components/AdminEditSkill'
+import AdminViewCourse from './components/AdminViewCourse'
+
 import "./global.js"
 
 ReactDOM.render(
@@ -44,6 +46,7 @@ ReactDOM.render(
                     <Route path="/admineditrole/:roleid" element={<AdminEditRole/>}></Route>
                     <Route path="/admineditskill/:skillid" element={<AdminEditSkill/>}></Route>
                     <Route path="/admincreaterole" element={<AdminCreateRole/>}></Route>
+                    <Route path="/adminviewcourse/:courseid" element={<AdminViewCourse/>}></Route>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

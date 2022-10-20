@@ -47,5 +47,62 @@ const skillsAdded = {
         }
     }
 }
-
-export {skillData, skillsAdded}
+const roleData = {
+    "data": {
+        "1": {
+            "Job_ID": "1",
+            "Job_courses": [
+                "COR001"
+            ],
+            "Job_name": "Sales Person",
+            "Job_skills": [
+                1,
+                6
+            ]
+        },
+        "2": {
+            "Job_ID": "2",
+            "Job_courses": [
+                "COR001",
+                "COR002"
+            ],
+            "Job_name": "Project Owner",
+            "Job_skills": [
+                2,
+                1
+            ]
+        },
+        "3": {
+            "Job_ID": "3",
+            "Job_courses": [
+                "COR001",
+                "COR002"
+            ],
+            "Job_name": "Team Manager",
+            "Job_skills": [
+                3
+            ]
+        },
+        "4": {
+            "Job_ID": "4",
+            "Job_courses": [
+                "COR003"
+            ],
+            "Job_name": "Data Analytis",
+            "Job_skills": [
+                4
+            ]
+        },
+        "5": {
+            "Job_ID": "5",
+            "Job_courses": [
+                "COR003"
+            ],
+            "Job_name": "Software Engineer",
+            "Job_skills": [
+                5
+            ]
+        }
+    }
+}
+export {skillData, skillsAdded, roleData}

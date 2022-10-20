@@ -20,6 +20,7 @@ import AdminRolePage from "./pages/AdminRolePage"
 import AdminCoursePage from "./pages/AdminCoursePage"
 import AdminSkillPage from "./pages/AdminSkillPage"
 import AdminEditRole from './components/AdminEditRole'
+import AdminCreateRole from './pages/AdminCreateRole'
 import "./global.js"
 
 ReactDOM.render(
@@ -40,6 +41,7 @@ ReactDOM.render(
                     <Route path="/admincoursepage/" element={<AdminCoursePage />}></Route>
                     <Route path="/adminskillpage/" element={<AdminSkillPage />}></Route>
                     <Route path="/admineditrole/:roleid" element={<AdminEditRole/>}></Route>
+                    <Route path="/admincreaterole" element={<AdminCreateRole/>}></Route>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

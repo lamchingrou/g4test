@@ -11,11 +11,11 @@ const AdminEditRole = () => {
     // get params
     const params = useParams()
 
-    function processEditRole(roleid){
-        if(added[0].length == 0){
+    function processEditRole(roleid) {
+        if (added[0].length == 0) {
             console.log('fail') //fail cos no skills at all
         }
-        else{
+        else {
             const editedSkills = added[0] //update the role
         }
     }
@@ -57,7 +57,22 @@ const AdminEditRole = () => {
                                 <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Remove Skill</th>
                             </tr>
                         </thead>
-                        <AdminUpdateSkill action='delete'/>
+                        {added[0].length == 0 ? 
+                        <tbody>
+                            <tr>
+                                <td colspan='2' className='text-center'>
+                                    <h2 class="text-xl font-medium mt-36">
+                                        No Skills Added Yet...
+                                    </h2>
+
+                                    <p class="mt-4 text-sm text-gray-500">
+                                        Added skills will appear here
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                            :
+                            <AdminUpdateSkill action='delete' />}
                     </table>
                 </div>
                 <div className='col-start-4 col-end-6 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
@@ -68,12 +83,12 @@ const AdminEditRole = () => {
                                 <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Add Skill</th>
                             </tr>
                         </thead>
-                        <AdminUpdateSkill action='add'/>
+                        <AdminUpdateSkill action='add' />
                     </table>
                 </div>
             </AddedContext.Provider>
             <div className='col-start-4 text-end col-end-6 row-start-6 row-end-6 my-auto overflow-y-auto max-h-screen mx-12'>
-                <a  onClick={()=>processEditRole(roleid)}
+                <a onClick={() => processEditRole(roleid)}
                     class="inline-block rounded-lg border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
                     href="#">
                     Save

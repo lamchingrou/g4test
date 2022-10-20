@@ -23,7 +23,6 @@ import AdminEditRole from './components/AdminEditRole'
 import AdminCreateRole from './pages/AdminCreateRole'
 import AdminEditSkill from './components/AdminEditSkill'
 import AdminViewCourse from './components/AdminViewCourse'
-
 import AdminCreateSkill from './pages/AdminCreateSkill'
 import "./global.js"
 

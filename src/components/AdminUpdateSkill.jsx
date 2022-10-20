@@ -5,21 +5,32 @@ import {AddedContext} from './RolePlannerContext'
 const AdminUpdateSkill = (props) => {
     function handleChange(skillid, action){
         var item = ''
-        for(let i=0; i<unaddedSkills.length; i++){
-            item = unaddedSkills[i]
-            if(item['Skill_ID'] === skillid){
-                if (action === 'add'){
-                    unaddedSkills.splice(i,1)
-                    addedSkills.push(item)
+        if (action === 'add'){
+            for(let i=0; i<unaddedSkills.length; i++){
+                item = unaddedSkills[i]
+                if(item['Skill_ID'] === skillid){
+                    if (action === 'add'){
+                        unaddedSkills.splice(i,1)
+                        addedSkills.push(item)
+                    }
+                    else {
+                        addedSkills.splice(i,1)
+                        unaddedSkills.push(item)
+                    }
+
                 }
-                else {
+            }
+        }
+
+        else {
+            for(let i=0; i<addedSkills.length; i++){
+                item = addedSkills[i]
+                if(item['Skill_ID'] === skillid){
                     addedSkills.splice(i,1)
                     unaddedSkills.push(item)
                 }
-
             }
         }
-        
         setAdded([addedSkills,unaddedSkills])
     }
     const {added, setAdded} = useContext(AddedContext)

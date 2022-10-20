@@ -2,8 +2,6 @@ import React from 'react';
 import '../index.css'
 import AdminSideBar from '../components/AdminSideBar'
 import SearchInput from '../components/SearchInput'
-// import AdminAddSkills from "../components/AdminAddSkills"
-// import AdminDeleteSkills from "../components/AdminDeleteSkills"
 import AdminUpdateSkill from "../components/AdminUpdateSkill"
 
 export default function AdminCreateRole() {

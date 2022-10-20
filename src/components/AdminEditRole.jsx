@@ -8,15 +8,14 @@ import { useState } from 'react'
 import { skillData, roleData } from '../global.js'
 import { AddedContext } from './RolePlannerContext'
 const AdminEditRole = () => {
-    // get params
     const params = useParams()
 
     function processEditRole(roleid){
         if(added[0].length == 0){
-            console.log('fail') //fail cos no skills at all
+            console.log('fail') // fail cos no skills at all
         }
         else{
-            const editedSkills = added[0] //update the role
+            const editedSkills = added[0] // update the role
         }
     }
     var roleid = params.roleid

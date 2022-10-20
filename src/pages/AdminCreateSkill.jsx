@@ -33,7 +33,7 @@ export default function AdminCreateSkill() {
     return (
         <div className="container-full grid grid-cols-5 grid-rows-6 max-h-screen">
             <div className="col-span-1">
-                <AdminSideBar select='Job Roles' />
+                <AdminSideBar select='Skills' />
             </div>
 
             <div className='col-start-2 col-end-4 my-auto flex'>
@@ -42,7 +42,7 @@ export default function AdminCreateSkill() {
                 </h1>
                 <div class="ml-4">
                     <label class="sr-only"> Skill Name </label>
-                    <input onChange={handleNameChange} type="search" id="skillName" placeholder="Role Name" class="w-full rounded-md border border-gray-200 shadow-sm sm:text-sm p-3" />
+                    <input onChange={handleNameChange} type="search" id="skillName" placeholder="Skill Name" class="w-full rounded-md border border-gray-200 shadow-sm sm:text-sm p-3" />
                 </div>
             </div>
            

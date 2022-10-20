@@ -33,7 +33,7 @@ const AdminEditSkill = () => {
     return (
         <div className="container-full grid grid-cols-5 grid-rows-6 max-h-screen">
             <div className="col-span-1">
-                <AdminSideBar select='Job skills' />
+                <AdminSideBar select='Skills' />
             </div>
 
             <div className='col-start-2 col-end-4 my-auto'>

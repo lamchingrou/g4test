@@ -4,7 +4,7 @@ import AdminUpdateCourse from "../components/AdminUpdateCourse"
 import { useParams } from "react-router-dom"
 import { useState } from 'react'
 import { skillData, courseData } from '../global.js'
-import { AddedContext, AddContext } from './RolePlannerContext'
+import { AddContext } from './RolePlannerContext'
 const AdminEditSkill = () => {
     const params = useParams()
 
@@ -54,7 +54,22 @@ const AdminEditSkill = () => {
                                 <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Remove Course</th>
                             </tr>
                         </thead>
-                        <AdminUpdateCourse action='delete'/>
+                        {add[0].length == 0 ? 
+                        <tbody>
+                            <tr>
+                                <td colspan='2' className='text-center'>
+                                    <h2 class="text-xl font-medium mt-36">
+                                        No Courses Added Yet...
+                                    </h2>
+
+                                    <p class="mt-4 text-sm text-gray-500">
+                                        Added Courses will appear here
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                            :
+                            <AdminUpdateCourse action='delete' />}
                     </table>
                 </div>
                 <div className='col-start-4 col-end-6 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>

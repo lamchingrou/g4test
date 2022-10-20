@@ -1,5 +1,5 @@
 import {useContext} from 'react'
-import {AddContext, AddedContext} from './RolePlannerContext'
+import {AddContext} from './RolePlannerContext'
 
 
 const AdminUpdateCourse = (props) => {

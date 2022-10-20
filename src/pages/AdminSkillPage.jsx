@@ -27,7 +27,7 @@ const AdminSkillPage = () => {
                                     <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Edit Skills</th>
                                 </tr>
                             </thead>
-                            <AdminRows data={skillData.data} name='Skill_name' id='Skill_ID' message='Skill'/>
+                            <AdminRows data={skillData.data} name='Skill_name' id='Skill_ID' message='Skill' href='/admineditskill/'/>
                         </table>
                 </div>
             </div>

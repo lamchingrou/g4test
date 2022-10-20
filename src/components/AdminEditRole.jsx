@@ -1,7 +1,8 @@
 import AdminSideBar from "../components/AdminSideBar"
 import SearchInput from "../components/SearchInput"
-import AdminAddSkills from "../components/AdminAddSkills"
-import AdminDeleteSkills from "../components/AdminDeleteSkills"
+// import AdminAddSkills from "../components/AdminAddSkills"
+// import AdminDeleteSkills from "../components/AdminDeleteSkills"
+import AdminUpdateSkill from "../components/AdminUpdateSkill"
 import { useParams } from "react-router-dom"
 import { useState } from 'react'
 import { skillData, roleData } from '../global.js'
@@ -53,10 +54,10 @@ const AdminEditRole = () => {
                         <thead>
                             <tr className='h-16 bg-gray-100 sticky top-0'>
                                 <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Skills Added</th>
-                                <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Delete Skill</th>
+                                <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Remove Skill</th>
                             </tr>
                         </thead>
-                        <AdminDeleteSkills currSkills={jobSkills} />
+                        <AdminUpdateSkill action='delete'/>
                     </table>
                 </div>
                 <div className='col-start-4 col-end-6 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
@@ -67,7 +68,7 @@ const AdminEditRole = () => {
                                 <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Add Skill</th>
                             </tr>
                         </thead>
-                        <AdminAddSkills />
+                        <AdminUpdateSkill action='add'/>
                     </table>
                 </div>
             </AddedContext.Provider>

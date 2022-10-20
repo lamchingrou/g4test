@@ -2,8 +2,10 @@ import React from 'react';
 import '../index.css'
 import AdminSideBar from '../components/AdminSideBar'
 import SearchInput from '../components/SearchInput'
-import AdminAddSkills from "../components/AdminAddSkills"
-import AdminDeleteSkills from "../components/AdminDeleteSkills"
+// import AdminAddSkills from "../components/AdminAddSkills"
+// import AdminDeleteSkills from "../components/AdminDeleteSkills"
+import AdminUpdateSkill from "../components/AdminUpdateSkill"
+
 export default function AdminCreateRole() {
     return (
         <div className="container-full grid grid-cols-5 grid-rows-6 max-h-screen">
@@ -32,7 +34,7 @@ export default function AdminCreateRole() {
                             <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Delete Skill</th>
                         </tr>
                     </thead>
-                    <AdminDeleteSkills />
+                    <AdminUpdateSkill action='delete' />
                 </table>
             </div>
             <div className='col-start-4 col-end-6 row-start-2 row-end-6 border rounded-lg overflow-y-auto max-h-screen mx-12'>
@@ -43,7 +45,7 @@ export default function AdminCreateRole() {
                             <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Add Skill</th>
                         </tr>
                     </thead>
-                    <AdminAddSkills />
+                    <AdminUpdateSkill action='add' />
                 </table>
             </div>
         </div >

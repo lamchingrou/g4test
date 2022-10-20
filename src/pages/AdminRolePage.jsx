@@ -49,7 +49,7 @@ const AdminRolePage = () => {
                             <th class="whitespace-nowrap px-4 py-2 text-center font-medium text-gray-900">Edit Role</th>
                         </tr>
                     </thead>
-                    <AdminRows data={roleData.data} name='Job_name' id='Job_ID' message='Role' />
+                    <AdminRows data={roleData.data} name='Job_name' id='Job_ID' message='Role' href='/admineditrole/' />
                 </table>
             </div>
         </div>

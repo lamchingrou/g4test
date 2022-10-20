@@ -22,7 +22,7 @@ const AdminEditSkill = () => {
     var addedCourses = []
     var unaddedCourses = []
     for (let key of Object.keys(courseData.data)) {
-        if (skillCourses.includes(parseInt(key))) {
+        if (skillCourses.includes(key)) {
             addedCourses.push(courseData.data[key])
         }
         else {
